@@ -1,0 +1,37 @@
+Relea Florin Andrei 314CA
+Pentru rezolvarea problemei am folosit 2 structuri, pixel_t si details.
+pixel_t ajuta la retinerea pixelilor imaginii , iar details pentru informatile
+suplimentare legate de imagine.
+
+------------------------------------LOAD-----------------------------------
+Prima oara determin tipul fisierului si daca este color sau nu apeland o 
+functie.
+Retin imaginea intr-o matrice.
+In cazul in care nu se poate incarca un fisier error devine -1
+-----------------------------------SELECT----------------------------------
+Cand se apeleaza functia select se citeste si urmatorul argument. Daca acesta 
+este ALL , se selecteaza intreaga imagine. In cazul celelalt se transpune 
+stringul intr-un numar(folosind functia atoi), un caz particular ar fii cazul 
+in care numarul este 0 caz in care stringul poate fii 0 sau format din litere.
+Se verifica corectitudinea coordonatelor pentru selectie, iar in cazul in care
+acestea sunt eronate se pastreaza coodonatele vechi.
+------------------------------------CROP-------------------------------------
+Se pastreaza pixeli dintre coordonatele imagini, iar vechea imagine se 
+elibereaza
+------------------------------------ROTATE------------------------------------
+Pentru a roti o matrice se face transpusa ei iar apoi se inverseaza coloanele.
+De asemenea in functie de coodonatele selectate ne dam seama daca trb sa 
+inversam doar o selectie sau toata imaginea. Pentru o selectie aceasta trebuie
+sa fie patratica. A roti cu un unghi negativ este identic cu a face o rotire cu
+corespondentul lui pozitiv.
+-----------------------------------APLLY--------------------------------------
+Se verifica daca un pixel are destui vecini pentru a putea fi modificat. In 
+cazul in care are voaloarea lui se schimba folosindu-ne de o matrice speciala
+corespunzatoare fiecarui filtru.
+----------------------------------SAVE-----------------------------------------
+Se determina daca tipul fisierului salvat este text sau binar. Initial se scriu
+informatile auxiliare in noul fisier urmand ca imaginea(matricea) sa fie si
+ea scrisa in format text. Inainte de a ar fii scrise valorile se rotunjesc 
+pentru a fii trecute din double in unsigned char.
+--------------------------------EXIT------------------------------------------
+Se inchide programul si se elibereaza memorie.
